@@ -1,6 +1,10 @@
 package com.github.hondaYoshitaka.sandbox.di.module
 
+import android.content.Context
+import com.github.hondaYoshitaka.sandbox.SandboxApplication
+import dagger.Binds
 import dagger.Module
+import javax.inject.Singleton
 
 /**
  * ApplicationのDI Moduleクラス.
@@ -8,12 +12,8 @@ import dagger.Module
  * @author hondaYoshitaka
  */
 @Module
-abstract class ApplicationModule(
-//        private val application: Application
-) {
-
-//    @Provides
-//    fun provideApplication(): Application {
-//        return application
-//    }
+abstract class ApplicationModule {
+    @Binds
+    @Singleton
+    abstract fun provideContext(app: SandboxApplication): Context
 }

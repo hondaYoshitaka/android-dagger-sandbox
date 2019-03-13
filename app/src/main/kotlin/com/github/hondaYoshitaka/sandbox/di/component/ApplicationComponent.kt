@@ -3,10 +3,10 @@ package com.github.hondaYoshitaka.sandbox.di.component
 import com.github.hondaYoshitaka.sandbox.SandboxApplication
 import com.github.hondaYoshitaka.sandbox.di.module.ActivityModule
 import com.github.hondaYoshitaka.sandbox.di.module.ApplicationModule
-import com.github.hondaYoshitaka.sandbox.di.module.FragmentModule
+import com.github.hondaYoshitaka.sandbox.di.module.NetworkModule
 import dagger.Component
-import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
+import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 
@@ -15,17 +15,15 @@ import javax.inject.Singleton
  *
  * @author hondaYoshitaka
  */
-@Singleton
 @Component(modules = [
-    AndroidInjectionModule::class,
+    AndroidSupportInjectionModule::class,
     ApplicationModule::class,
     ActivityModule::class,
-    FragmentModule::class
+    NetworkModule::class
 ])
-abstract class ApplicationComponent : AndroidInjector<SandboxApplication> {
+@Singleton
+interface ApplicationComponent : AndroidInjector<SandboxApplication> {
 
-//    @Component.Builder
-//    abstract class Builder : AndroidInjector.Builder<SandboxApplication>() {
-//        abstract fun applicationModule(module: ApplicationModule): Builder
-//    }
+    @Component.Builder
+    abstract class Builder : AndroidInjector.Builder<SandboxApplication>()
 }
