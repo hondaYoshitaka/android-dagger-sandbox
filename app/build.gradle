@@ -30,7 +30,7 @@ android {
         local {
             dimension 'backend'
         }
-        poc {
+        staging {
             dimension 'backend'
         }
 
@@ -40,10 +40,6 @@ android {
         client {
             dimension 'api_client'
         }
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
     }
 }
 

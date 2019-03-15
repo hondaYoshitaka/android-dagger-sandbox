@@ -9,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 import com.github.hondaYoshitaka.sandbox.R
+import com.github.hondaYoshitaka.sandbox.service.SampleService
 
 @Module
 class NetworkModule {
@@ -22,4 +23,8 @@ class NetworkModule {
             .baseUrl(context.getString(R.string.api_url))
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
+
+    @Provides
+    @Singleton
+    fun provideSampleService(retrofit: Retrofit):SampleService = SampleService(retrofit)
 }
