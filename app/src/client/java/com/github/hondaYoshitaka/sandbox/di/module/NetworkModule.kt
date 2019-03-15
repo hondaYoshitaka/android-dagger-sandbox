@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 import com.github.hondaYoshitaka.sandbox.R
-import com.github.hondaYoshitaka.sandbox.service.SampleService
+import com.github.hondaYoshitaka.sandbox.service.api.QiitaApi
 
 @Module
 class NetworkModule {
@@ -26,5 +26,5 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideSampleService(retrofit: Retrofit):SampleService = SampleService(retrofit)
+    fun provideQiitaApi(retrofit: Retrofit): QiitaApi = retrofit.create(QiitaApi::class.java)
 }
